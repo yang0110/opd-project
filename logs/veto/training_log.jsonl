@@ -1,10 +1,3 @@
-{"step": 0, "loss": 0.5802555084228516, "elapsed_ms": 53.46, "veto/loss": 0.580256, "veto/mean_alpha": 0.933204, "veto/direct_teacher_kl": 0.666573, "veto/kl_direction": "reverse"}
-{"step": 1, "loss": 0.5772364735603333, "elapsed_ms": 49.63, "veto/loss": 0.577236, "veto/mean_alpha": 0.933579, "veto/direct_teacher_kl": 0.661526, "veto/kl_direction": "reverse"}
-{"step": 2, "loss": 0.5736082196235657, "elapsed_ms": 53.84, "veto/loss": 0.573608, "veto/mean_alpha": 0.933876, "veto/direct_teacher_kl": 0.658357, "veto/kl_direction": "reverse"}
-{"step": 3, "loss": 0.571529746055603, "elapsed_ms": 43.91, "veto/loss": 0.57153, "veto/mean_alpha": 0.934112, "veto/direct_teacher_kl": 0.655146, "veto/kl_direction": "reverse"}
-{"step": 4, "loss": 0.5679269433021545, "elapsed_ms": 55.61, "veto/loss": 0.567927, "veto/mean_alpha": 0.934498, "veto/direct_teacher_kl": 0.650305, "veto/kl_direction": "reverse"}
-{"step": 5, "loss": 0.5659323334693909, "elapsed_ms": 51.81, "veto/loss": 0.565932, "veto/mean_alpha": 0.934743, "veto/direct_teacher_kl": 0.647664, "veto/kl_direction": "reverse"}
-{"step": 6, "loss": 0.5629838109016418, "elapsed_ms": 43.47, "veto/loss": 0.562984, "veto/mean_alpha": 0.935043, "veto/direct_teacher_kl": 0.643631, "veto/kl_direction": "reverse"}
-{"step": 7, "loss": 0.5597853064537048, "elapsed_ms": 65.16, "veto/loss": 0.559785, "veto/mean_alpha": 0.935332, "veto/direct_teacher_kl": 0.64077, "veto/kl_direction": "reverse"}
-{"step": 8, "loss": 0.5570759177207947, "elapsed_ms": 45.77, "veto/loss": 0.557076, "veto/mean_alpha": 0.935628, "veto/direct_teacher_kl": 0.636874, "veto/kl_direction": "reverse"}
-{"step": 9, "loss": 0.5541447401046753, "elapsed_ms": 49.76, "veto/loss": 0.554145, "veto/mean_alpha": 0.935962, "veto/direct_teacher_kl": 0.63234, "veto/kl_direction": "reverse"}
+{"step": 0, "loss": 0.4985453486442566, "elapsed_ms": 31.35, "veto/loss": 0.498545, "veto/beta": 1.0, "veto/kl_direction": "forward", "veto/direct_teacher_fwd_kl": 0.666573, "veto/target_entropy": 6.937617}
+{"step": 1, "loss": 0.5005571842193604, "elapsed_ms": 36.0, "veto/loss": 0.500557, "veto/beta": 1.0, "veto/kl_direction": "forward", "veto/direct_teacher_fwd_kl": 0.66522, "veto/target_entropy": 6.932186}
+{"step": 2, "loss": 0.49900954961776733, "elapsed_ms": 32.69, "veto/loss": 0.49901, "veto/beta": 1.0, "veto/kl_direction": "forward", "veto/direct_teacher_fwd_kl": 0.666013, "veto/target_entropy": 6.93489}

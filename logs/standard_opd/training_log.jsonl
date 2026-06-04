@@ -1,10 +1,3 @@
-{"step": 0, "loss": -1.733860969543457, "elapsed_ms": 61.19, "opd/loss": -1.733861, "opd/mean_kl": 0.267319, "opd/mean_advantage": -0.267319, "opd/mean_token_reward": -0.267319}
-{"step": 1, "loss": -1.965317964553833, "elapsed_ms": 20.02, "opd/loss": -1.965318, "opd/mean_kl": 0.294433, "opd/mean_advantage": -0.294433, "opd/mean_token_reward": -0.294433}
-{"step": 2, "loss": -2.407686710357666, "elapsed_ms": 17.47, "opd/loss": -2.407687, "opd/mean_kl": 0.351451, "opd/mean_advantage": -0.351451, "opd/mean_token_reward": -0.351451}
-{"step": 3, "loss": -2.7303991317749023, "elapsed_ms": 25.53, "opd/loss": -2.730399, "opd/mean_kl": 0.396154, "opd/mean_advantage": -0.396154, "opd/mean_token_reward": -0.396154}
-{"step": 4, "loss": -2.4384264945983887, "elapsed_ms": 24.25, "opd/loss": -2.438426, "opd/mean_kl": 0.356735, "opd/mean_advantage": -0.356735, "opd/mean_token_reward": -0.356735}
-{"step": 5, "loss": -1.9320961236953735, "elapsed_ms": 17.51, "opd/loss": -1.932096, "opd/mean_kl": 0.295395, "opd/mean_advantage": -0.295395, "opd/mean_token_reward": -0.295395}
-{"step": 6, "loss": -2.6042466163635254, "elapsed_ms": 24.96, "opd/loss": -2.604247, "opd/mean_kl": 0.385193, "opd/mean_advantage": -0.385193, "opd/mean_token_reward": -0.385193}
-{"step": 7, "loss": -1.5232831239700317, "elapsed_ms": 19.04, "opd/loss": -1.523283, "opd/mean_kl": 0.239607, "opd/mean_advantage": -0.239607, "opd/mean_token_reward": -0.239607}
-{"step": 8, "loss": -1.7575955390930176, "elapsed_ms": 25.06, "opd/loss": -1.757596, "opd/mean_kl": 0.262849, "opd/mean_advantage": -0.262849, "opd/mean_token_reward": -0.262849}
-{"step": 9, "loss": -2.0375213623046875, "elapsed_ms": 18.91, "opd/loss": -2.037521, "opd/mean_kl": 0.305206, "opd/mean_advantage": -0.305206, "opd/mean_token_reward": -0.305206}
+{"step": 0, "loss": -1.733860969543457, "elapsed_ms": 59.76, "opd/loss": -1.733861, "opd/mean_kl": 0.267319, "opd/mean_advantage": -0.267319, "opd/mean_token_reward": -0.267319}
+{"step": 1, "loss": -1.965317964553833, "elapsed_ms": 21.67, "opd/loss": -1.965318, "opd/mean_kl": 0.294433, "opd/mean_advantage": -0.294433, "opd/mean_token_reward": -0.294433}
+{"step": 2, "loss": -2.407686710357666, "elapsed_ms": 17.99, "opd/loss": -2.407687, "opd/mean_kl": 0.351451, "opd/mean_advantage": -0.351451, "opd/mean_token_reward": -0.351451}

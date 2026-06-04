@@ -161,7 +161,7 @@ def test_veto(config: SmokeConfig) -> dict:
     mod = load_module("veto")
 
     def loss_fn(student_logits, student_log_probs, teacher_logits, teacher_log_probs, ref_log_probs, mask):
-        return mod.compute_veto_loss(student_logits, teacher_logits, mask, adaptive=True)
+        return mod.compute_veto_loss(student_logits, teacher_logits, mask, beta=1.0)
 
     return run_training_step(loss_fn, config)
 
@@ -337,7 +337,7 @@ def run_all_tests(config: SmokeConfig, methods: list[str] = None):
             print(f"  [{status}] {name}")
             print(f"         losses: {[f'{l:.4f}' for l in losses]}")
             if result["final_metrics"]:
-                key_metrics = {k: f"{v:.4f}" for k, v in list(result["final_metrics"].items())[:3]}
+                key_metrics = {k: f"{v:.4f}" if isinstance(v, float) else str(v) for k, v in list(result["final_metrics"].items())[:3]}
                 print(f"         metrics: {key_metrics}")
             print()
 

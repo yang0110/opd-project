@@ -213,7 +213,7 @@ def factory_veto(config):
     mod = load_module("veto")
     def loss_fn(batch):
         return mod.compute_veto_loss(
-            batch["student_logits"], batch["teacher_logits"], batch["mask"], adaptive=True
+            batch["student_logits"], batch["teacher_logits"], batch["mask"], beta=1.0
         )
     return loss_fn
 
