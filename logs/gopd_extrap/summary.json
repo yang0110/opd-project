@@ -1,14 +1,14 @@
 {
   "method": "gopd_extrap",
   "status": "PASS",
-  "total_time_s": 0.064,
-  "num_steps": 3,
+  "total_time_s": 0.121,
+  "num_steps": 5,
   "config": {
     "batch_size": 8,
     "seq_len": 64,
     "vocab_size": 2000,
     "hidden_dim": 256,
-    "num_steps": 3,
+    "num_steps": 5,
     "lr": 0.001,
     "device": "cpu",
     "seed": 42
@@ -16,12 +16,14 @@
   "loss_trajectory": [
     -1.6293823719024658,
     -1.9462541341781616,
-    -2.596672534942627
+    -2.596672534942627,
+    -2.9499242305755615,
+    -2.500739097595215
   ],
   "initial_loss": -1.6293823719024658,
-  "final_loss": -2.596672534942627,
-  "loss_delta": -0.96729,
-  "min_loss": -2.596672534942627,
+  "final_loss": -2.500739097595215,
+  "loss_delta": -0.871357,
+  "min_loss": -2.9499242305755615,
   "max_loss": -1.6293823719024658,
-  "timestamp": "2026-06-04T13:38:37.086756"
+  "timestamp": "2026-06-04T13:46:17.137176"
 }

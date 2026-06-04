@@ -1,14 +1,14 @@
 {
   "method": "gopd_interp",
   "status": "PASS",
-  "total_time_s": 0.061,
-  "num_steps": 3,
+  "total_time_s": 0.119,
+  "num_steps": 5,
   "config": {
     "batch_size": 8,
     "seq_len": 64,
     "vocab_size": 2000,
     "hidden_dim": 256,
-    "num_steps": 3,
+    "num_steps": 5,
     "lr": 0.001,
     "device": "cpu",
     "seed": 42
@@ -16,12 +16,14 @@
   "loss_trajectory": [
     -1.942818522453308,
     -2.0145480632781982,
-    -2.0399956703186035
+    -2.0399956703186035,
+    -2.288102865219116,
+    -2.3271842002868652
   ],
   "initial_loss": -1.942818522453308,
-  "final_loss": -2.0399956703186035,
-  "loss_delta": -0.097177,
-  "min_loss": -2.0399956703186035,
+  "final_loss": -2.3271842002868652,
+  "loss_delta": -0.384366,
+  "min_loss": -2.3271842002868652,
   "max_loss": -1.942818522453308,
-  "timestamp": "2026-06-04T13:38:37.153409"
+  "timestamp": "2026-06-04T13:46:17.259410"
 }

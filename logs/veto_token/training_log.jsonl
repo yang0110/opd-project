@@ -1,3 +1,5 @@
-{"step": 0, "loss": -0.8669306635856628, "elapsed_ms": 19.93, "veto/loss": -0.866931, "veto/beta": 1.0}
-{"step": 1, "loss": -0.9826685786247253, "elapsed_ms": 19.83, "veto/loss": -0.982669, "veto/beta": 1.0}
-{"step": 2, "loss": -1.2038569450378418, "elapsed_ms": 23.13, "veto/loss": -1.203857, "veto/beta": 1.0}
+{"step": 0, "loss": -0.8669306635856628, "elapsed_ms": 22.88, "veto/loss": -0.866931, "veto/beta": 1.0}
+{"step": 1, "loss": -0.9826685786247253, "elapsed_ms": 20.75, "veto/loss": -0.982669, "veto/beta": 1.0}
+{"step": 2, "loss": -1.2038569450378418, "elapsed_ms": 20.7, "veto/loss": -1.203857, "veto/beta": 1.0}
+{"step": 3, "loss": -1.3651759624481201, "elapsed_ms": 29.35, "veto/loss": -1.365176, "veto/beta": 1.0}
+{"step": 4, "loss": -1.2192245721817017, "elapsed_ms": 20.68, "veto/loss": -1.219225, "veto/beta": 1.0}

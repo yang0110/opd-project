@@ -1,14 +1,14 @@
 {
   "method": "entropy_aware",
   "status": "PASS",
-  "total_time_s": 0.098,
-  "num_steps": 3,
+  "total_time_s": 0.177,
+  "num_steps": 5,
   "config": {
     "batch_size": 8,
     "seq_len": 64,
     "vocab_size": 2000,
     "hidden_dim": 256,
-    "num_steps": 3,
+    "num_steps": 5,
     "lr": 0.001,
     "device": "cpu",
     "seed": 42
@@ -16,12 +16,14 @@
   "loss_trajectory": [
     5.7214155197143555,
     5.711137294769287,
-    5.718720436096191
+    5.718720436096191,
+    5.709488868713379,
+    5.703691005706787
   ],
   "initial_loss": 5.7214155197143555,
-  "final_loss": 5.718720436096191,
-  "loss_delta": -0.002695,
-  "min_loss": 5.711137294769287,
+  "final_loss": 5.703691005706787,
+  "loss_delta": -0.017725,
+  "min_loss": 5.703691005706787,
   "max_loss": 5.7214155197143555,
-  "timestamp": "2026-06-04T13:38:37.494861"
+  "timestamp": "2026-06-04T13:46:17.900931"
 }

@@ -1,3 +1,5 @@
-{"step": 0, "loss": -1.733860969543457, "elapsed_ms": 59.76, "opd/loss": -1.733861, "opd/mean_kl": 0.267319, "opd/mean_advantage": -0.267319, "opd/mean_token_reward": -0.267319}
-{"step": 1, "loss": -1.965317964553833, "elapsed_ms": 21.67, "opd/loss": -1.965318, "opd/mean_kl": 0.294433, "opd/mean_advantage": -0.294433, "opd/mean_token_reward": -0.294433}
-{"step": 2, "loss": -2.407686710357666, "elapsed_ms": 17.99, "opd/loss": -2.407687, "opd/mean_kl": 0.351451, "opd/mean_advantage": -0.351451, "opd/mean_token_reward": -0.351451}
+{"step": 0, "loss": -1.733860969543457, "elapsed_ms": 58.22, "opd/loss": -1.733861, "opd/mean_kl": 0.267319, "opd/mean_advantage": -0.267319, "opd/mean_token_reward": -0.267319}
+{"step": 1, "loss": -1.965317964553833, "elapsed_ms": 28.91, "opd/loss": -1.965318, "opd/mean_kl": 0.294433, "opd/mean_advantage": -0.294433, "opd/mean_token_reward": -0.294433}
+{"step": 2, "loss": -2.407686710357666, "elapsed_ms": 20.95, "opd/loss": -2.407687, "opd/mean_kl": 0.351451, "opd/mean_advantage": -0.351451, "opd/mean_token_reward": -0.351451}
+{"step": 3, "loss": -2.7303991317749023, "elapsed_ms": 26.33, "opd/loss": -2.730399, "opd/mean_kl": 0.396154, "opd/mean_advantage": -0.396154, "opd/mean_token_reward": -0.396154}
+{"step": 4, "loss": -2.4384264945983887, "elapsed_ms": 21.84, "opd/loss": -2.438426, "opd/mean_kl": 0.356735, "opd/mean_advantage": -0.356735, "opd/mean_token_reward": -0.356735}

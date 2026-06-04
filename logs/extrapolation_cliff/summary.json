@@ -1,27 +1,29 @@
 {
   "method": "extrapolation_cliff",
   "status": "PASS",
-  "total_time_s": 0.073,
-  "num_steps": 3,
+  "total_time_s": 0.141,
+  "num_steps": 5,
   "config": {
     "batch_size": 8,
     "seq_len": 64,
     "vocab_size": 2000,
     "hidden_dim": 256,
-    "num_steps": 3,
+    "num_steps": 5,
     "lr": 0.001,
     "device": "cpu",
     "seed": 42
   },
   "loss_trajectory": [
-    -1.6293823719024658,
-    -1.9462541341781616,
-    -2.596672534942627
+    -1.7756528854370117,
+    -1.975868821144104,
+    -2.3332276344299316,
+    -2.640241861343384,
+    -2.415250539779663
   ],
-  "initial_loss": -1.6293823719024658,
-  "final_loss": -2.596672534942627,
-  "loss_delta": -0.96729,
-  "min_loss": -2.596672534942627,
-  "max_loss": -1.6293823719024658,
-  "timestamp": "2026-06-04T13:38:37.721449"
+  "initial_loss": -1.7756528854370117,
+  "final_loss": -2.415250539779663,
+  "loss_delta": -0.639598,
+  "min_loss": -2.640241861343384,
+  "max_loss": -1.7756528854370117,
+  "timestamp": "2026-06-04T13:46:18.336484"
 }

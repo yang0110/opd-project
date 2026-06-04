@@ -1,14 +1,14 @@
 {
   "method": "uni_opd",
   "status": "PASS",
-  "total_time_s": 0.061,
-  "num_steps": 3,
+  "total_time_s": 0.121,
+  "num_steps": 5,
   "config": {
     "batch_size": 8,
     "seq_len": 64,
     "vocab_size": 2000,
     "hidden_dim": 256,
-    "num_steps": 3,
+    "num_steps": 5,
     "lr": 0.001,
     "device": "cpu",
     "seed": 42
@@ -16,12 +16,14 @@
   "loss_trajectory": [
     0.21190756559371948,
     -1.40420663356781,
-    -0.4991679787635803
+    -0.4991679787635803,
+    -1.1964731216430664,
+    0.16944782435894012
   ],
   "initial_loss": 0.21190756559371948,
-  "final_loss": -0.4991679787635803,
-  "loss_delta": -0.711076,
+  "final_loss": 0.16944782435894012,
+  "loss_delta": -0.04246,
   "min_loss": -1.40420663356781,
   "max_loss": 0.21190756559371948,
-  "timestamp": "2026-06-04T13:38:37.857098"
+  "timestamp": "2026-06-04T13:46:18.599150"
 }

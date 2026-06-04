@@ -1,3 +1,5 @@
-{"step": 0, "loss": 0.4985453486442566, "elapsed_ms": 31.35, "veto/loss": 0.498545, "veto/beta": 1.0, "veto/kl_direction": "forward", "veto/direct_teacher_fwd_kl": 0.666573, "veto/target_entropy": 6.937617}
-{"step": 1, "loss": 0.5005571842193604, "elapsed_ms": 36.0, "veto/loss": 0.500557, "veto/beta": 1.0, "veto/kl_direction": "forward", "veto/direct_teacher_fwd_kl": 0.66522, "veto/target_entropy": 6.932186}
-{"step": 2, "loss": 0.49900954961776733, "elapsed_ms": 32.69, "veto/loss": 0.49901, "veto/beta": 1.0, "veto/kl_direction": "forward", "veto/direct_teacher_fwd_kl": 0.666013, "veto/target_entropy": 6.93489}
+{"step": 0, "loss": 0.4985453486442566, "elapsed_ms": 40.32, "veto/loss": 0.498545, "veto/beta": 1.0, "veto/kl_direction": "forward", "veto/direct_teacher_fwd_kl": 0.666573, "veto/target_entropy": 6.937617}
+{"step": 1, "loss": 0.5005571842193604, "elapsed_ms": 35.99, "veto/loss": 0.500557, "veto/beta": 1.0, "veto/kl_direction": "forward", "veto/direct_teacher_fwd_kl": 0.66522, "veto/target_entropy": 6.932186}
+{"step": 2, "loss": 0.49900954961776733, "elapsed_ms": 43.44, "veto/loss": 0.49901, "veto/beta": 1.0, "veto/kl_direction": "forward", "veto/direct_teacher_fwd_kl": 0.666013, "veto/target_entropy": 6.93489}
+{"step": 3, "loss": 0.49960482120513916, "elapsed_ms": 37.22, "veto/loss": 0.499605, "veto/beta": 1.0, "veto/kl_direction": "forward", "veto/direct_teacher_fwd_kl": 0.666775, "veto/target_entropy": 6.935031}
+{"step": 4, "loss": 0.5001522898674011, "elapsed_ms": 49.86, "veto/loss": 0.500152, "veto/beta": 1.0, "veto/kl_direction": "forward", "veto/direct_teacher_fwd_kl": 0.665815, "veto/target_entropy": 6.93448}

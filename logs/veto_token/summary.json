@@ -1,14 +1,14 @@
 {
   "method": "veto_token",
   "status": "PASS",
-  "total_time_s": 0.063,
-  "num_steps": 3,
+  "total_time_s": 0.115,
+  "num_steps": 5,
   "config": {
     "batch_size": 8,
     "seq_len": 64,
     "vocab_size": 2000,
     "hidden_dim": 256,
-    "num_steps": 3,
+    "num_steps": 5,
     "lr": 0.001,
     "device": "cpu",
     "seed": 42
@@ -16,12 +16,14 @@
   "loss_trajectory": [
     -0.8669306635856628,
     -0.9826685786247253,
-    -1.2038569450378418
+    -1.2038569450378418,
+    -1.3651759624481201,
+    -1.2192245721817017
   ],
   "initial_loss": -0.8669306635856628,
-  "final_loss": -1.2038569450378418,
-  "loss_delta": -0.336926,
-  "min_loss": -1.2038569450378418,
+  "final_loss": -1.2192245721817017,
+  "loss_delta": -0.352294,
+  "min_loss": -1.3651759624481201,
   "max_loss": -0.8669306635856628,
-  "timestamp": "2026-06-04T13:38:37.393383"
+  "timestamp": "2026-06-04T13:46:17.718868"
 }
