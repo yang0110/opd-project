@@ -1,23 +1,20 @@
 """
 AlignDistil: Token-Level Language Model Alignment as Adaptive Policy Distillation.
 
-Core insight: RLHF/DPO alignment reward can be rewritten as a token-level
-distillation process. The teacher distribution is a linear combination of
-DPO model and reference model logits.
+This implements the BASIC version (Theorem 1, Eq. 11):
+    z_t* = (β_0/β) * z_t^dpo + (1 - β_0/β) * z_t^ref
 
-Key formulation:
-    π_target(v|h_t) ∝ π_ref(v|h_t) * exp(r(v, h_t) / β)
+The FULL version (Eq. 14-17) additionally uses:
+- A reverse DPO model (trained with chosen/rejected swapped) for contrastive reward
+- Token-adaptive α based on TVD between DPO and reverse DPO (Eq. 16-17):
+    z_t* = z_t^dpo + α_t * (z_t^dpo - z_t^dpo^-)
+    α_t = D_TVD(t) * r + ε
+- Per-token β_t weighting in the loss: β_t = β_0/α_t
 
-where r is the token-level implicit reward from DPO/RLHF.
+The full version requires an additional reverse-DPO model not available here.
+Our adaptive α uses a KL-based heuristic as a simplified proxy.
 
-This is equivalent to:
-    log π_target = (1/β) * log π_DPO + (1 - 1/β) * log π_ref + const
-
-AlignDistil proposes token-adaptive logit extrapolation to avoid:
-- Under-optimization (not enough reward signal)
-- Over-optimization (reward hacking at specific tokens)
-
-Connects G-OPD (distillation → reward) with RLHF (reward → distillation).
+Paper: arXiv:2503.02832
 """
 
 import torch
@@ -28,32 +25,37 @@ from typing import Optional
 def compute_aligndistil_target(
     dpo_logits: torch.Tensor,
     ref_logits: torch.Tensor,
+    beta_0: float = 0.1,
     beta: float = 0.1,
     extrapolation_factor: Optional[torch.Tensor] = None,
 ) -> torch.Tensor:
     """
     Compute AlignDistil target distribution from DPO model and reference.
 
-    Target logits:
-        z_target = (1/β) * z_DPO + (1 - 1/β) * z_ref
+    Basic version (Eq. 11):
+        z_t* = (β_0/β) * z_t^dpo + (1 - β_0/β) * z_t^ref
 
-    With adaptive extrapolation:
-        z_target = α_t * z_DPO + (1 - α_t) * z_ref
+    where β_0 = DPO training temperature, β = RLHF optimization temperature.
+    When β_0 = β: z_t* = z_t^dpo (no extrapolation, just use DPO model).
+    When β > β_0: α < 1 (interpolation toward ref, more conservative).
+    When β < β_0: α > 1 (extrapolation beyond DPO, more aggressive).
 
-    where α_t adapts per token to avoid over/under-optimization.
+    With adaptive extrapolation (Eq. 17):
+        z_t* = z_t^dpo + α_t * (z_t^dpo - z_t^dpo^-)
 
     Args:
         dpo_logits: [batch, seq_len, vocab] DPO-aligned model logits
-        ref_logits: [batch, seq_len, vocab] reference (base) model logits
-        beta: DPO/RLHF temperature parameter
-        extrapolation_factor: [batch, seq_len] or scalar, adaptive α_t
+        ref_logits: [batch, seq_len, vocab] reference (base/DPO_ref) model logits
+        beta_0: DPO training temperature (β_0 in paper)
+        beta: RLHF optimization temperature (β in paper)
+        extrapolation_factor: [batch, seq_len] or scalar, adaptive α_t override
 
     Returns:
         target_logits: [batch, seq_len, vocab]
     """
     if extrapolation_factor is None:
-        # Default: use 1/β as the mixing coefficient
-        alpha = 1.0 / beta
+        # Default from Eq. 11: α = β_0 / β
+        alpha = beta_0 / beta
     else:
         alpha = extrapolation_factor
 
@@ -168,7 +170,7 @@ def compute_aligndistil_loss(
 
     # Compute target
     target_logits = compute_aligndistil_target(
-        dpo_logits, ref_logits, beta=beta, extrapolation_factor=alpha
+        dpo_logits, ref_logits, beta_0=beta, beta=beta, extrapolation_factor=alpha
     )
 
     # Compute KL loss
@@ -222,7 +224,7 @@ def compute_aligndistil_token_level_loss(
     Then standard OPD-style loss toward this target.
     """
     if adaptive_alpha is None:
-        alpha = 1.0 / beta
+        alpha = 1.0  # β_0/β = 1 when β_0 = β (default: no extrapolation)
     else:
         alpha = adaptive_alpha
 
