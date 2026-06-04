@@ -28,50 +28,51 @@ from typing import Optional
 def compute_safety_threshold(
     teacher_modal_prob: torch.Tensor,
     warmstart_mass: torch.Tensor,
-    clip_strength: float = 0.2,
+    clip_strength: float = 5.0,
 ) -> torch.Tensor:
     """
-    Compute closed-form clip-safety threshold λ* for ExOPD.
+    Compute closed-form clip-safety threshold λ* (Theorem 4.1, Eq. 4).
 
-    From the single-position Bernoulli reduction in the paper:
-        λ* = f(p_T, m, c)
+    λ*(p, b, c) = [log((1-p)/(c-1+p)) - log((1-b)/b)]
+                  / [log((1-p)/p) - log((1-b)/b)]
 
-    The threshold depends on:
-    - p_T: teacher's probability on the modal (highest-prob) token
-    - m: student's initial probability mass on that token (warm-start)
-    - c: importance-sampling clip strength
+    where:
+    - p: teacher modal probability at a structural position
+    - b: warm-start modal probability (student init mass on same token)
+    - c: per-token IS clip strength (paper uses c=5.0)
 
-    Beyond λ*, the student's policy on contract-critical tokens flips
-    from correct to incorrect, causing parse failures.
+    Special case b=1/2: λ* = log((1-p)/(c-1+p)) / log((1-p)/p)
+
+    Above λ*, the extrapolated fixed point exits the clip-safe region,
+    causing format-collapse on structural tokens.
 
     Args:
-        teacher_modal_prob: [batch, seq_len] teacher prob on top token
-        warmstart_mass: [batch, seq_len] student init prob on same token
-        clip_strength: IS clip range (e.g., 0.2 for [0.8, 1.2])
+        teacher_modal_prob: [batch, seq_len] p - teacher prob on top token
+        warmstart_mass: [batch, seq_len] b - student init prob on same token
+        clip_strength: c - IS clip cap (paper default c=5.0)
 
     Returns:
         lambda_star: [batch, seq_len] per-position safety threshold
     """
-    # For near-deterministic positions (p_T close to 1):
-    # λ* ≈ 1 + log(1 + c) / log(p_T / (1 - p_T))
-    # This is derived from the Bernoulli policy flip condition
+    p = teacher_modal_prob.clamp(0.51, 0.9999)
+    b = warmstart_mass.clamp(0.01, 0.9999)
+    c = clip_strength
 
-    # Clamp for numerical stability
-    p_T = teacher_modal_prob.clamp(0.01, 0.999)
-    m = warmstart_mass.clamp(0.01, 0.999)
+    # Numerator: log((1-p)/(c-1+p)) - log((1-b)/b)
+    numerator = torch.log((1 - p) / (c - 1 + p).clamp(min=1e-8)) - torch.log((1 - b) / b)
 
-    # Log-odds of teacher modal prob
-    log_odds = torch.log(p_T / (1 - p_T))
+    # Denominator: log((1-p)/p) - log((1-b)/b)
+    denominator = torch.log((1 - p) / p) - torch.log((1 - b) / b)
 
-    # Safety margin from clipping
-    clip_margin = math.log(1 + clip_strength)
+    # Avoid division by zero (when p ≈ b, threshold → ∞, meaning safe)
+    lambda_star = numerator / denominator.clamp(min=1e-8).clamp(max=-1e-8)
 
-    # Threshold: how much extrapolation before policy flips
-    lambda_star = 1.0 + clip_margin / log_odds.clamp(min=0.01)
+    # When denominator is near zero or positive (p ≈ b), threshold is very large (safe)
+    safe_mask = denominator.abs() < 1e-6
+    lambda_star = torch.where(safe_mask, torch.tensor(10.0, device=p.device), lambda_star)
 
-    # Account for warm-start: better initialization allows more extrapolation
-    warmstart_bonus = torch.log(m / (1 - m)).clamp(min=0) * 0.1
-    lambda_star = lambda_star + warmstart_bonus
+    # Clamp to reasonable range
+    lambda_star = lambda_star.clamp(min=1.0, max=10.0)
 
     return lambda_star
 
