@@ -59,15 +59,22 @@ def compute_safety_threshold(
     c = clip_strength
 
     # Numerator: log((1-p)/(c-1+p)) - log((1-b)/b)
-    numerator = torch.log((1 - p) / (c - 1 + p).clamp(min=1e-8)) - torch.log((1 - b) / b)
+    numerator = torch.log((1 - p) / (c - 1 + p).clamp(min=1e-8)) - torch.log((1 - b) / b.clamp(min=1e-8))
 
     # Denominator: log((1-p)/p) - log((1-b)/b)
-    denominator = torch.log((1 - p) / p) - torch.log((1 - b) / b)
+    denominator = torch.log((1 - p) / p) - torch.log((1 - b) / b.clamp(min=1e-8))
 
-    # Avoid division by zero (when p ≈ b, threshold → ∞, meaning safe)
-    lambda_star = numerator / denominator.clamp(min=1e-8).clamp(max=-1e-8)
+    # For p > 0.5 and typical b, denominator is negative.
+    # Avoid division by near-zero denominator.
+    denom_safe = torch.where(
+        denominator.abs() < 1e-6,
+        torch.tensor(-1e-6, device=p.device),
+        denominator,
+    )
 
-    # When denominator is near zero or positive (p ≈ b), threshold is very large (safe)
+    lambda_star = numerator / denom_safe
+
+    # When denominator is near zero (p ≈ b), threshold is effectively infinite (safe)
     safe_mask = denominator.abs() < 1e-6
     lambda_star = torch.where(safe_mask, torch.tensor(10.0, device=p.device), lambda_star)
 
