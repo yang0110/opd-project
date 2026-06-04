@@ -1,0 +1,38 @@
+# Core framework
+verl>=0.3.0
+torch>=2.4.0
+transformers>=4.45.0
+accelerate>=0.34.0
+
+# Inference engines
+vllm>=0.8.2
+
+# Distributed
+ray[default]>=2.10
+
+# Configuration
+hydra-core>=1.3.0
+omegaconf
+
+# Logging
+wandb
+tensorboard
+
+# Data
+datasets
+pandas
+numpy
+scipy
+
+# Attention
+flash-attn
+
+# Tokenizers
+sentencepiece
+tiktoken
+
+# Math verification
+math-verify
+
+# Evaluation
+lm-eval

@@ -1,0 +1,70 @@
+# Standard OPD training config
+# Based on G-OPD paper experimental settings (Section 4.1.1)
+# Student: Qwen3-4B-Non-Thinking, Teacher: domain-specific RL variant
+
+trainer:
+  total_training_steps: 50
+  val_check_interval: 10
+  save_interval: 10
+  log_interval: 1
+  project_name: "opd"
+  experiment_name: "standard_opd_qwen3_4b"
+  logger: ["wandb"]
+
+model:
+  student:
+    path: "Qwen/Qwen3-4B"
+    enable_thinking: false
+  teacher:
+    path: ""  # Set to domain teacher checkpoint
+    enable_thinking: false
+  reference:
+    path: "Qwen/Qwen3-4B"  # Same as student init
+    enable_thinking: false
+
+data:
+  train_files: []  # Set to training data paths
+  val_files: []
+  max_prompt_length: 1024
+  max_response_length: 16384
+  prompt_key: "prompt"
+
+rollout:
+  name: "vllm"
+  tensor_parallel_size: 1
+  gpu_memory_utilization: 0.4
+  n: 1  # Single generation per prompt for OPD
+  temperature: 1.0
+  top_p: 1.0
+
+actor:
+  optim:
+    lr: 5e-7
+    weight_decay: 0.01
+    warmup_ratio: 0.1
+    lr_scheduler: "cosine"
+  ppo_mini_batch_size: 16
+  ppo_micro_batch_size_per_gpu: 2
+  grad_clip: 1.0
+  fsdp:
+    enable: true
+    wrap_policy: "transformer_layer"
+
+algorithm:
+  loss_type: "token_pg"  # token-level policy gradient
+  kl_coef: 0.0  # Pure OPD (no explicit KL penalty)
+  temperature: 1.0
+  loss_agg: "token-mean"
+
+teacher_inference:
+  micro_batch_size_per_gpu: 4
+  tensor_parallel_size: 2
+  return_logits: false  # Only need log_probs for standard OPD
+  return_entropy: false
+
+resource_pool:
+  # Colocate actor + rollout + ref on same GPUs
+  actor_rollout_ref:
+    num_gpus: 8
+  teacher:
+    num_gpus: 4  # Can share with actor if memory allows

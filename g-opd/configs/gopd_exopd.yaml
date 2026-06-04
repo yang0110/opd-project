@@ -1,0 +1,33 @@
+# G-OPD / ExOPD configuration
+# From paper: λ=1.25 consistently best across tasks
+
+trainer:
+  total_training_steps: 50
+  project_name: "opd"
+  experiment_name: "exopd_lambda1.25"
+
+model:
+  student:
+    path: "Qwen/Qwen3-4B"
+  teacher:
+    path: ""  # Domain teacher (post-RL)
+  reference:
+    path: "Qwen/Qwen3-4B"  # Student init for same-size; teacher_base for strong-to-weak
+
+algorithm:
+  method: "g-opd"
+  lambda: 1.25  # ExOPD: reward extrapolation
+  loss_agg: "token-mean"
+  reward_correction: false  # Set true for strong-to-weak with teacher_base available
+
+  # Sweep values from paper: [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5]
+  # λ=0: reference model only
+  # λ=1: standard OPD
+  # λ=1.25: best ExOPD (extrapolation)
+  # λ=1.5: too aggressive, may destabilize
+
+rollout:
+  temperature: 1.0
+  top_p: 1.0
+  max_response_length: 16384
+  n: 1
