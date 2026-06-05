@@ -98,13 +98,13 @@ def plot_metric(
         if method not in data:
             continue
         entries = data[method]
-        steps = [e.get("step", j) for j, e in enumerate(entries)]
-        values = [e.get(metric_key, None) for e in entries]
-        values = [v for v in values if v is not None]
-        steps = steps[:len(values)]
+        pairs = [(e.get("step", j), e.get(metric_key, None)) for j, e in enumerate(entries)]
+        pairs = [(s, v) for s, v in pairs if v is not None]
 
-        if not values:
+        if not pairs:
             continue
+
+        steps, values = zip(*pairs)
 
         label = METHOD_LABELS.get(method, method)
         color = COLORS[i % len(COLORS)]

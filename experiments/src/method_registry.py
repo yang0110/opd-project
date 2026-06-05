@@ -82,7 +82,7 @@ METHODS = {
         "advantage_fn": None,
         "needs_logits": True,
         "needs_outcome_reward": False,
-        "kwargs": {"tau": 0.0, "top_k": 10, "clip_range": 0.2},
+        "kwargs": {"tau": 0.0, "clip_range": 0.2},
     },
     "extrapolation_cliff": {
         "module_dir": "extrapolation-cliff",

@@ -1,0 +1,18 @@
+{
+  "method": "aopd",
+  "status": "PASS",
+  "num_steps": 5,
+  "total_time_s": 1.16,
+  "initial_loss": 0.0,
+  "final_loss": 4.7852678298950195,
+  "loss_delta": 4.7852678298950195,
+  "loss_trajectory": [
+    0.0,
+    26.472862243652344,
+    8.542531967163086,
+    8.045912742614746,
+    4.7852678298950195
+  ],
+  "needs_logits": true,
+  "timestamp": "2026-06-05T13:54:17.623259"
+}

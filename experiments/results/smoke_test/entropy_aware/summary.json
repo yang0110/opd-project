@@ -1,0 +1,18 @@
+{
+  "method": "entropy_aware",
+  "status": "PASS",
+  "num_steps": 5,
+  "total_time_s": 1.21,
+  "initial_loss": 0.35947197675704956,
+  "final_loss": 4.148871421813965,
+  "loss_delta": 3.7893994450569153,
+  "loss_trajectory": [
+    0.35947197675704956,
+    3.8999063968658447,
+    4.84460973739624,
+    4.674333572387695,
+    4.148871421813965
+  ],
+  "needs_logits": true,
+  "timestamp": "2026-06-05T13:54:16.448266"
+}

@@ -1,0 +1,18 @@
+{
+  "method": "aligndistil",
+  "status": "PASS",
+  "num_steps": 5,
+  "total_time_s": 1.21,
+  "initial_loss": 0.0,
+  "final_loss": 2.5914297103881836,
+  "loss_delta": 2.5914297103881836,
+  "loss_trajectory": [
+    0.0,
+    1.482027530670166,
+    2.060253143310547,
+    1.392583966255188,
+    2.5914297103881836
+  ],
+  "needs_logits": false,
+  "timestamp": "2026-06-05T13:54:23.584200"
+}

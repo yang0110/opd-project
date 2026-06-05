@@ -1,0 +1,18 @@
+{
+  "method": "extrapolation_cliff",
+  "status": "PASS",
+  "num_steps": 5,
+  "total_time_s": 1.17,
+  "initial_loss": -2.616996255255799e-07,
+  "final_loss": 33.959835052490234,
+  "loss_delta": 33.95983531418986,
+  "loss_trajectory": [
+    -2.616996255255799e-07,
+    10.166851043701172,
+    16.51056671142578,
+    28.653974533081055,
+    33.959835052490234
+  ],
+  "needs_logits": true,
+  "timestamp": "2026-06-05T13:54:20.049909"
+}

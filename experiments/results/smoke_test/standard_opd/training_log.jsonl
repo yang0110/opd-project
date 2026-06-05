@@ -1,0 +1,5 @@
+{"step": 0, "loss": 0.0, "kl_to_teacher": 0.0, "entropy": 4.150547981262207, "time_s": 0.8008928298950195}
+{"step": 1, "loss": 0.0, "kl_to_teacher": 0.0, "entropy": 4.150547981262207, "time_s": 1.0344672203063965}
+{"step": 2, "loss": 0.0, "kl_to_teacher": 0.0, "entropy": 4.150547981262207, "time_s": 1.259523630142212}
+{"step": 3, "loss": 0.0, "kl_to_teacher": 0.0, "entropy": 4.150547981262207, "time_s": 1.485652208328247}
+{"step": 4, "loss": 0.0, "kl_to_teacher": 0.0, "entropy": 4.150547981262207, "time_s": 1.7109997272491455}

@@ -1,0 +1,254 @@
+[
+  {
+    "method": "standard_opd",
+    "status": "PASS",
+    "num_steps": 5,
+    "total_time_s": 1.71,
+    "initial_loss": 0.0,
+    "final_loss": 0.0,
+    "loss_delta": 0.0,
+    "loss_trajectory": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "needs_logits": false,
+    "timestamp": "2026-06-05T13:54:09.407119"
+  },
+  {
+    "method": "gopd_interp",
+    "status": "PASS",
+    "num_steps": 5,
+    "total_time_s": 1.14,
+    "initial_loss": 0.0,
+    "final_loss": 0.0,
+    "loss_delta": 0.0,
+    "loss_trajectory": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "needs_logits": false,
+    "timestamp": "2026-06-05T13:54:10.558298"
+  },
+  {
+    "method": "gopd_extrap",
+    "status": "PASS",
+    "num_steps": 5,
+    "total_time_s": 1.14,
+    "initial_loss": -2.616996255255799e-07,
+    "final_loss": 33.92969512939453,
+    "loss_delta": 33.92969539109416,
+    "loss_trajectory": [
+      -2.616996255255799e-07,
+      10.166851043701172,
+      16.51056671142578,
+      28.653972625732422,
+      33.92969512939453
+    ],
+    "needs_logits": false,
+    "timestamp": "2026-06-05T13:54:11.716473"
+  },
+  {
+    "method": "gopd_correction",
+    "status": "PASS",
+    "num_steps": 5,
+    "total_time_s": 1.13,
+    "initial_loss": 0.0,
+    "final_loss": 0.0,
+    "loss_delta": 0.0,
+    "loss_trajectory": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "needs_logits": false,
+    "timestamp": "2026-06-05T13:54:12.864248"
+  },
+  {
+    "method": "veto_logit",
+    "status": "PASS",
+    "num_steps": 5,
+    "total_time_s": 1.19,
+    "initial_loss": 0.5086126923561096,
+    "final_loss": 0.8325825929641724,
+    "loss_delta": 0.32396990060806274,
+    "loss_trajectory": [
+      0.5086126923561096,
+      1.4662582874298096,
+      0.9383236169815063,
+      0.7169776558876038,
+      0.8325825929641724
+    ],
+    "needs_logits": true,
+    "timestamp": "2026-06-05T13:54:14.072554"
+  },
+  {
+    "method": "veto_token",
+    "status": "PASS",
+    "num_steps": 5,
+    "total_time_s": 1.14,
+    "initial_loss": 0.0,
+    "final_loss": 0.0,
+    "loss_delta": 0.0,
+    "loss_trajectory": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "needs_logits": false,
+    "timestamp": "2026-06-05T13:54:15.225077"
+  },
+  {
+    "method": "entropy_aware",
+    "status": "PASS",
+    "num_steps": 5,
+    "total_time_s": 1.21,
+    "initial_loss": 0.35947197675704956,
+    "final_loss": 4.148871421813965,
+    "loss_delta": 3.7893994450569153,
+    "loss_trajectory": [
+      0.35947197675704956,
+      3.8999063968658447,
+      4.84460973739624,
+      4.674333572387695,
+      4.148871421813965
+    ],
+    "needs_logits": true,
+    "timestamp": "2026-06-05T13:54:16.448266"
+  },
+  {
+    "method": "aopd",
+    "status": "PASS",
+    "num_steps": 5,
+    "total_time_s": 1.16,
+    "initial_loss": 0.0,
+    "final_loss": 4.7852678298950195,
+    "loss_delta": 4.7852678298950195,
+    "loss_trajectory": [
+      0.0,
+      26.472862243652344,
+      8.542531967163086,
+      8.045912742614746,
+      4.7852678298950195
+    ],
+    "needs_logits": true,
+    "timestamp": "2026-06-05T13:54:17.623259"
+  },
+  {
+    "method": "aopd_clipped",
+    "status": "PASS",
+    "num_steps": 5,
+    "total_time_s": 1.23,
+    "initial_loss": 0.0,
+    "final_loss": 0.0,
+    "loss_delta": 0.0,
+    "loss_trajectory": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "needs_logits": true,
+    "timestamp": "2026-06-05T13:54:18.869229"
+  },
+  {
+    "method": "extrapolation_cliff",
+    "status": "PASS",
+    "num_steps": 5,
+    "total_time_s": 1.17,
+    "initial_loss": -2.616996255255799e-07,
+    "final_loss": 33.959835052490234,
+    "loss_delta": 33.95983531418986,
+    "loss_trajectory": [
+      -2.616996255255799e-07,
+      10.166851043701172,
+      16.51056671142578,
+      28.653974533081055,
+      33.959835052490234
+    ],
+    "needs_logits": true,
+    "timestamp": "2026-06-05T13:54:20.049909"
+  },
+  {
+    "method": "caopd",
+    "status": "PASS",
+    "num_steps": 5,
+    "total_time_s": 1.16,
+    "initial_loss": 0.2483641505241394,
+    "final_loss": 6.73928689956665,
+    "loss_delta": 6.490922749042511,
+    "loss_trajectory": [
+      0.2483641505241394,
+      39.80424499511719,
+      7.755363464355469,
+      19.93645477294922,
+      6.73928689956665
+    ],
+    "needs_logits": false,
+    "timestamp": "2026-06-05T13:54:21.220645"
+  },
+  {
+    "method": "uni_opd",
+    "status": "PASS",
+    "num_steps": 5,
+    "total_time_s": 1.13,
+    "initial_loss": 0.0,
+    "final_loss": 0.0,
+    "loss_delta": 0.0,
+    "loss_trajectory": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "needs_logits": false,
+    "timestamp": "2026-06-05T13:54:22.362376"
+  },
+  {
+    "method": "aligndistil",
+    "status": "PASS",
+    "num_steps": 5,
+    "total_time_s": 1.21,
+    "initial_loss": 0.0,
+    "final_loss": 2.5914297103881836,
+    "loss_delta": 2.5914297103881836,
+    "loss_trajectory": [
+      0.0,
+      1.482027530670166,
+      2.060253143310547,
+      1.392583966255188,
+      2.5914297103881836
+    ],
+    "needs_logits": false,
+    "timestamp": "2026-06-05T13:54:23.584200"
+  },
+  {
+    "method": "coverage_opd",
+    "status": "PASS",
+    "num_steps": 5,
+    "total_time_s": 1.12,
+    "initial_loss": 0.0,
+    "final_loss": 0.0,
+    "loss_delta": 0.0,
+    "loss_trajectory": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "needs_logits": false,
+    "timestamp": "2026-06-05T13:54:24.718491"
+  }
+]

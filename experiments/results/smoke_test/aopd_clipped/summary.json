@@ -1,0 +1,18 @@
+{
+  "method": "aopd_clipped",
+  "status": "PASS",
+  "num_steps": 5,
+  "total_time_s": 1.23,
+  "initial_loss": 0.0,
+  "final_loss": 0.0,
+  "loss_delta": 0.0,
+  "loss_trajectory": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "needs_logits": true,
+  "timestamp": "2026-06-05T13:54:18.869229"
+}
