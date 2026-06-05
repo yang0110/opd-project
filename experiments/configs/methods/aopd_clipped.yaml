@@ -1,0 +1,16 @@
+# AOPD Clipped - PPO-style variant
+# Adds importance ratio clipping to AOPD
+
+trainer:
+  experiment_name: "aopd_clipped"
+
+algorithm:
+  method: "aopd_clipped"
+  tau: 0.0
+  top_k: 10
+  exploit_coef: 1.0
+  imitate_coef: 1.0
+  clip_range: 0.2
+
+teacher_inference:
+  return_logits: true

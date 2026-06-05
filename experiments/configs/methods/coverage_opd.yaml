@@ -1,0 +1,10 @@
+# Coverage OPD - On-Policy Preference with Coverage Improvement
+# Coverage-aware sampling with convergence guarantees
+
+trainer:
+  experiment_name: "coverage_opd"
+
+algorithm:
+  method: "coverage_opd"
+  beta: 0.1
+  coverage_threshold: 0.8

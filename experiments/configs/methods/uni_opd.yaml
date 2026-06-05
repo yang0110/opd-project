@@ -1,0 +1,11 @@
+# Uni-OPD - Outcome-Guided Margin Calibration
+# Token-level guidance calibrated by sequence-level outcome reward
+
+trainer:
+  experiment_name: "uni_opd"
+
+algorithm:
+  method: "uni_opd"
+  margin_scale: 1.0
+  kl_coef: 0.1
+  num_generations: 4

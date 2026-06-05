@@ -1,0 +1,15 @@
+# AOPD - Asymmetric On-Policy Distillation
+# Exploitation branch (OPD) + Imitation branch (truncated forward KL)
+
+trainer:
+  experiment_name: "aopd"
+
+algorithm:
+  method: "aopd"
+  tau: 0.0
+  top_k: 10
+  exploit_coef: 1.0
+  imitate_coef: 1.0
+
+teacher_inference:
+  return_logits: true

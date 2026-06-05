@@ -1,0 +1,14 @@
+# Extrapolation Cliff - Safe ExOPD
+# Adaptive per-token lambda with safety threshold
+
+trainer:
+  experiment_name: "extrapolation_cliff"
+
+algorithm:
+  method: "extrapolation_cliff"
+  base_lambda: 1.25
+  clip_strength: 0.2
+  use_adaptive_lambda: true
+
+teacher_inference:
+  return_logits: true

@@ -1,0 +1,9 @@
+# G-OPD Interpolation (lambda=0.75)
+# Conservative: student interpolates between teacher and reference
+
+trainer:
+  experiment_name: "gopd_interp"
+
+algorithm:
+  method: "gopd_interp"
+  lambda: 0.75

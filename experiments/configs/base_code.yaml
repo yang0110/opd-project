@@ -1,0 +1,85 @@
+# Base config for OPD code generation experiments
+# All methods inherit from this. Per-method overrides in methods/*.yaml
+
+trainer:
+  total_training_steps: 200
+  val_check_interval: 50
+  save_interval: 50
+  log_interval: 1
+  project_name: "opd-code-comparison"
+  experiment_name: ""  # Set per-method
+  logger: ["jsonl"]  # Local logging only, no WandB
+  seed: 42
+  output_dir: "experiments/results"
+
+model:
+  student:
+    path: "Qwen/Qwen3-4B"
+    enable_thinking: false
+  teacher:
+    path: "Qwen/Qwen3-14B"
+    enable_thinking: false
+  reference:
+    path: "Qwen/Qwen3-4B"
+    enable_thinking: false
+
+data:
+  train_files: ["datasets/data/eurus-rl-code/train.parquet"]
+  val_files: []
+  max_prompt_length: 1024
+  max_response_length: 4096
+  prompt_key: "prompt"
+  seed: 42
+
+rollout:
+  name: "vllm"
+  tensor_parallel_size: 2
+  gpu_memory_utilization: 0.5
+  n: 1
+  temperature: 1.0
+  top_p: 1.0
+
+actor:
+  optim:
+    lr: 5e-7
+    weight_decay: 0.01
+    warmup_ratio: 0.1
+    lr_scheduler: "cosine"
+  ppo_mini_batch_size: 16
+  ppo_micro_batch_size_per_gpu: 2
+  grad_clip: 1.0
+  fsdp:
+    enable: true
+    wrap_policy: "transformer_layer"
+
+algorithm:
+  loss_type: "token_pg"
+  kl_coef: 0.0
+  temperature: 1.0
+  loss_agg: "token-mean"
+
+teacher_inference:
+  tensor_parallel_size: 4
+  micro_batch_size_per_gpu: 4
+  return_logits: false
+  return_entropy: false
+
+resource_pool:
+  actor_rollout_ref:
+    num_gpus: 8
+  teacher:
+    num_gpus: 4
+
+eval:
+  benchmarks: ["humaneval_plus", "mbpp_plus"]
+  eval_steps: [50, 100, 150, 200]
+  generation:
+    pass_at_1:
+      temperature: 0.0
+      top_p: 1.0
+      n: 1
+    pass_at_8:
+      temperature: 0.8
+      top_p: 0.95
+      n: 8
+  max_length: 2048

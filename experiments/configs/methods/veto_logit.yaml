@@ -1,0 +1,14 @@
+# Veto - Logit-Level Bridge Target
+# Adaptive bridge: target_logits = teacher_logits + beta * student_logits
+
+trainer:
+  experiment_name: "veto_logit"
+
+algorithm:
+  method: "veto_logit"
+  beta_init: 1.0
+  beta_decay: "linear"
+  kl_direction: "forward"
+
+teacher_inference:
+  return_logits: true

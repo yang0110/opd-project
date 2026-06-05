@@ -1,0 +1,15 @@
+# Entropy-Aware OPD
+# Adaptive KL direction: adds forward KL at high-entropy positions
+
+trainer:
+  experiment_name: "entropy_aware"
+
+algorithm:
+  method: "entropy_aware"
+  tau: 0.8
+  alpha: 1.0
+  top_k: 16
+
+teacher_inference:
+  return_logits: true
+  return_entropy: true

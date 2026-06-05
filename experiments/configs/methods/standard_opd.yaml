@@ -1,0 +1,10 @@
+# Standard OPD - Baseline
+# Reverse KL on student trajectories, no explicit KL penalty
+
+trainer:
+  experiment_name: "standard_opd"
+
+algorithm:
+  method: "standard_opd"
+  loss_type: "token_pg"
+  kl_coef: 0.0

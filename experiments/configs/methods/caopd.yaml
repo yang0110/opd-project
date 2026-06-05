@@ -1,0 +1,11 @@
+# CaOPD - Calibration-Aware OPD
+# Decouples capability from calibration via empirical confidence
+
+trainer:
+  experiment_name: "caopd"
+
+algorithm:
+  method: "caopd"
+  num_rollouts: 8
+  capability_coef: 1.0
+  calibration_coef: 1.0

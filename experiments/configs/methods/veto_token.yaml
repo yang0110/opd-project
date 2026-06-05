@@ -1,0 +1,10 @@
+# Veto - Token-Level Approximation
+# Uses log-probs only (no full logit transfer needed)
+
+trainer:
+  experiment_name: "veto_token"
+
+algorithm:
+  method: "veto_token"
+  beta_init: 1.0
+  beta_decay: "linear"

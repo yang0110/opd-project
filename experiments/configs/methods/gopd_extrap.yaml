@@ -1,0 +1,9 @@
+# G-OPD Extrapolation / ExOPD (lambda=1.25)
+# Student aims to surpass teacher via reward extrapolation
+
+trainer:
+  experiment_name: "gopd_extrap"
+
+algorithm:
+  method: "gopd_extrap"
+  lambda: 1.25

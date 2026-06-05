@@ -1,0 +1,10 @@
+# G-OPD with Reward Correction
+# For strong-to-weak distillation scenarios
+
+trainer:
+  experiment_name: "gopd_correction"
+
+algorithm:
+  method: "gopd_correction"
+  lambda: 1.25
+  reward_correction: true

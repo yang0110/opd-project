@@ -1,0 +1,11 @@
+# AlignDistil - Token-Level Alignment as Policy Distillation
+# Uses teacher logits as DPO-aligned proxy
+
+trainer:
+  experiment_name: "aligndistil"
+
+algorithm:
+  method: "aligndistil"
+  beta: 0.1
+  adaptive: true
+  kl_direction: "forward"
